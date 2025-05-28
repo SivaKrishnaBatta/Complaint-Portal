@@ -1,0 +1,44 @@
+<div class="form-container animate-slide-in">
+  <h2>Register Complaint</h2>
+  <form (ngSubmit)="onSubmit()" #complaintForm="ngForm">
+    <label>Date:</label>
+    <input type="text" [value]="complaint.date" readonly />
+
+    <label>Time:</label>
+    <input type="text" [value]="complaint.time" readonly />
+
+    <label>Ticket No:</label>
+    <input type="text" [(ngModel)]="complaint.ticketNo" name="ticketNo" required />
+
+    <label>Project Name:</label>
+    <input type="text" [(ngModel)]="complaint.projectName" name="projectName" required />
+
+    <label>Module Name:</label>
+    <input type="text" [(ngModel)]="complaint.moduleName" name="moduleName" required />
+
+    <label>Sub Module Name:</label>
+    <input type="text" [(ngModel)]="complaint.subModuleName" name="subModuleName" required />
+
+    <label>Frequency:</label>
+    <select [(ngModel)]="complaint.frequency" name="frequency">
+      <option>High</option>
+      <option>Medium</option>
+      <option>Low</option>
+    </select>
+
+    <label>Priority:</label>
+    <select [(ngModel)]="complaint.priority" name="priority">
+      <option>High</option>
+      <option>Medium</option>
+      <option>Low</option>
+    </select>
+
+    <label>Issue Explanation:</label>
+    <textarea [(ngModel)]="complaint.issue" name="issue" required></textarea>
+
+    <label>Attach File:</label>
+    <input type="file" (change)="onFileChange($event)" />
+
+    <button type="submit">Submit</button>
+  </form>
+</div>

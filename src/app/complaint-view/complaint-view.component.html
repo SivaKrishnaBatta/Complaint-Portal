@@ -1,0 +1,26 @@
+<div class="complaint-details-container animate-fade-in">
+  <h2>Complaint Details</h2>
+
+  <div *ngIf="complaint">
+    <p><strong>Date:</strong> {{ complaint.date }}</p>
+    <p><strong>Time:</strong> {{ complaint.time }}</p>
+    <p><strong>Ticket No:</strong> {{ complaint.ticketNo }}</p>
+    <p><strong>Project Name:</strong> {{ complaint.projectName }}</p>
+    <p><strong>Module Name:</strong> {{ complaint.moduleName }}</p>
+    <p><strong>Sub Module Name:</strong> {{ complaint.subModuleName }}</p>
+    <p><strong>Frequency:</strong> {{ complaint.frequency }}</p>
+    <p><strong>Priority:</strong> {{ complaint.priority }}</p>
+    <p><strong>Issue:</strong> {{ complaint.issue }}</p>
+    <p><strong>Status:</strong> {{ complaint.status }}</p>
+    <p *ngIf="complaint.attachment">
+      <strong>Attachment:</strong>
+      <a [href]="complaint.attachment" target="_blank">View File</a>
+    </p>
+  </div>
+
+  <div *ngIf="!complaint">
+    <p>Complaint not found.</p>
+  </div>
+
+  <button class="close-btn" (click)="close()">Close</button>
+</div>

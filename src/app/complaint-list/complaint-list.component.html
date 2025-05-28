@@ -1,0 +1,43 @@
+<div class="container my-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="text-primary">All Complaints</h2>
+    <a routerLink="/add">
+      <button class="btn btn-success">+ Add New Complaint</button>
+    </a>
+  </div>
+
+  <div class="table-responsive shadow-lg rounded animate__animated animate__fadeIn">
+    <table class="table table-bordered table-hover align-middle text-center">
+      <thead class="table-dark">
+        <tr>
+          <th>Ticket No</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Project Name</th>
+          <th>Module</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let complaint of complaints" class="table-light">
+          <td>{{ complaint.ticketNo }}</td>
+          <td>{{ complaint.date }}</td>
+          <td>{{ complaint.time }}</td>
+          <td>{{ complaint.projectName }}</td>
+          <td>{{ complaint.moduleName }}</td>
+          <td>
+            <span class="badge bg-info text-dark">{{ complaint.status }}</span>
+          </td>
+          <td>
+            <a [routerLink]="['/view', complaint.id]">
+              <button class="btn btn-sm btn-primary me-1">View</button>
+            </a>
+            <button class="btn btn-sm btn-warning me-1" [routerLink]="['/complaints/update', complaint.id]">Edit</button>
+            <button class="btn btn-sm btn-danger" (click)="deleteComplaint(complaint.id!)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
